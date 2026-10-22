@@ -1,0 +1,11 @@
+.env
+.env.*
+*.pem
+*.key
+credentials*.json
+secrets*.json
+.openai/
+.sites-runtime/
+.codex/
+.agents/
+node_modules/
