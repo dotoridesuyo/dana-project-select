@@ -51,7 +51,7 @@ const projects = [
       },
       {
         "label": "컨셉 기획 링크",
-        "url": null
+        "url": "https://dotoridesuyo.github.io/dana-project-select/mist-train-concept.html"
       }
     ]
   },
