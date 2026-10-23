@@ -28,7 +28,7 @@ jobs:
       - name: Prepare public files
         run: |
           mkdir -p _site
-          cp index.html app.js projects.js layout-core.js editor.html editor.js style.css start.css editor.css portfolio-pages.css .nojekyll _site/
+          cp index.html app.js projects.js layout-core.js editor.html editor.js style.css start.css editor.css portfolio-pages.css .nojekyll mist-train-concept.html _site/
           unzip -q assets.zip -d _site/
       - name: Upload site
         uses: actions/upload-pages-artifact@v4
