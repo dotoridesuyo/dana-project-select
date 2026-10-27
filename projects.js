@@ -1,4 +1,4 @@
-// 2026-10-27 PDF images; project order, copy, and external links preserved.
+// Project selection character foreground; existing gallery and links preserved.
 const projects = [
   {
     "id": "misttrain",
@@ -9,8 +9,8 @@ const projects = [
     "source": "1인 개발 · 2D 내러티브 웹 게임 · 2주",
     "subtitle": "기억을 따라 마주하는 이별",
     "image": "portfolio-20261027/misttrain.webp",
-    "background": "portfolio-20261027/misttrain.webp",
-    "character": null,
+    "background": "foreground-20261027/train-scene.webp",
+    "character": "foreground-20261027/heroine.webp",
     "caption": "남겨진 기억에서, 살아온 시간의 의미를 찾다.",
     "roman": "I",
     "hook": "남겨진 기억을 따라,\n각자의 삶과 마지막 이별을 마주하다.",
@@ -53,7 +53,8 @@ const projects = [
         "label": "컨셉 기획 링크",
         "url": "https://dotoridesuyo.github.io/dana-project-select/mist-train-concept.html"
       }
-    ]
+    ],
+    "characterClass": "standing"
   },
   {
     "id": "halloween",
@@ -117,7 +118,7 @@ const projects = [
     "subtitle": "유쾌한 동료에서 애착 가는 인물로",
     "image": "portfolio-20261027/heukryeon.webp",
     "background": "portfolio-20261027/heukryeon.webp",
-    "character": null,
+    "character": "portfolio-20261027/heukryeon.webp",
     "caption": "익숙한 외형 위에, 대화와 성장의 매력을.",
     "roman": "III",
     "hook": "능청스러운 농담 뒤에,\n알아갈수록 응원하게 되는 동료.",
@@ -156,7 +157,8 @@ const projects = [
         "label": "기획 파일 보기",
         "url": "https://docs.google.com/spreadsheets/d/1GwfyC73z-HrUrqqLB0Bpcd2prurVJK4pTMSCinAKMvI/edit?usp=sharing"
       }
-    ]
+    ],
+    "characterClass": "standing"
   },
   {
     "id": "food",
@@ -168,7 +170,7 @@ const projects = [
     "subtitle": "순천만을 수집의 재미로",
     "image": "portfolio-20261027/food.webp",
     "background": "portfolio-20261027/food.webp",
-    "character": null,
+    "character": "foreground-20261027/food.webp",
     "caption": "순천만의 생태를, 친숙한 놀이로.",
     "roman": "IV",
     "hook": "순천만의 가치를,\n직접 모으고 즐기는 플레이로.",
@@ -197,7 +199,8 @@ const projects = [
         "label": "플레이 영상 보기",
         "url": "https://drive.google.com/file/d/1l3cECFZ3r2-phTBmQqKnjnHYpbHYsN10/view"
       }
-    ]
+    ],
+    "characterClass": "companion"
   },
   {
     "id": "leaf",
@@ -209,7 +212,7 @@ const projects = [
     "subtitle": "숲을 함께 가꾸는 안내자",
     "image": "portfolio-20261027/leaf.webp",
     "background": "portfolio-20261027/leaf.webp",
-    "character": null,
+    "character": "portfolio-20261027/leaf.webp",
     "caption": "성격에서 말투, 음악과 목소리까지.",
     "roman": "V",
     "hook": "숲에 처음 들어온 플레이어를\n반갑게 맞아 줄 친구.",
@@ -246,7 +249,8 @@ const projects = [
         "label": "캐릭터 테마곡 듣기",
         "url": "https://www.mureka.ai/ko/song-detail/3g516tSe6No8324buFC2zP?is_from_share=1"
       }
-    ]
+    ],
+    "characterClass": "companion"
   },
   {
     "id": "rain",
@@ -258,7 +262,7 @@ const projects = [
     "subtitle": "서툰 마음이 관계가 되기까지",
     "image": "portfolio-20261027/rain.webp",
     "background": "portfolio-20261027/rain.webp",
-    "character": null,
+    "character": "portfolio-20261027/rain.webp",
     "caption": "소원을 들어주지만, 사랑에는 서툰 정령.",
     "roman": "VI",
     "hook": "사람의 소원은 알지만,\n사랑받는 법은 모르는 비의 정령.",
@@ -287,6 +291,7 @@ const projects = [
         "label": "캐릭터와 대화하기",
         "url": "https://zeta-ai.io/ko/plots/51b9a94f-d1e0-444e-be44-7f45b051d368/profile?share_id=wu4deto2"
       }
-    ]
+    ],
+    "characterClass": "portrait"
   }
 ];
