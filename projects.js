@@ -1,4 +1,4 @@
-// 최신 Canva 포트폴리오와 본부장님이 지정한 작품 순서·외부 링크.
+// 2026-10-27 PDF images; project order, copy, and external links preserved.
 const projects = [
   {
     "id": "misttrain",
@@ -8,8 +8,8 @@ const projects = [
     "type": "NARRATIVE ADVENTURE",
     "source": "1인 개발 · 2D 내러티브 웹 게임 · 2주",
     "subtitle": "기억을 따라 마주하는 이별",
-    "image": "misttrain.png",
-    "background": "misttrain.png",
+    "image": "portfolio-20261027/misttrain.webp",
+    "background": "portfolio-20261027/misttrain.webp",
     "character": null,
     "caption": "남겨진 기억에서, 살아온 시간의 의미를 찾다.",
     "roman": "I",
@@ -25,22 +25,22 @@ const projects = [
     "pages": [
       {
         "number": 5,
-        "image": "assets/portfolio/page-05.webp",
+        "image": "assets/portfolio-20261027/page-05.webp",
         "title": "프로젝트 개요와 제작 범위"
       },
       {
         "number": 6,
-        "image": "assets/portfolio/page-06.webp",
+        "image": "assets/portfolio-20261027/page-06.webp",
         "title": "컨셉과 기획 의도"
       },
       {
         "number": 7,
-        "image": "assets/portfolio/page-07.webp",
+        "image": "assets/portfolio-20261027/page-07.webp",
         "title": "기억 탐색과 감정의 연결"
       },
       {
         "number": 8,
-        "image": "assets/portfolio/page-08.webp",
+        "image": "assets/portfolio-20261027/page-08.webp",
         "title": "AI를 활용한 웹 개발 프로세스"
       }
     ],
@@ -63,9 +63,9 @@ const projects = [
     "type": "QUEST & EVENT DESIGN",
     "source": "마비노기 모바일 · 할로윈 이벤트 개인 기획",
     "subtitle": "함께 만드는 축제",
-    "image": "halloween.webp",
-    "background": "halloween-scene.png",
-    "character": "dj-ghost.png",
+    "image": "portfolio-20261027/halloween.webp",
+    "background": "portfolio-20261027/halloween-scene.webp",
+    "character": "portfolio-20261027/dj-ghost.webp",
     "characterClass": "halloween",
     "caption": "외면받던 유령에서, 축제의 동료로.",
     "roman": "II",
@@ -81,22 +81,22 @@ const projects = [
     "pages": [
       {
         "number": 13,
-        "image": "assets/portfolio/page-13.webp",
+        "image": "assets/portfolio-20261027/page-13.webp",
         "title": "시즌 이벤트 개요"
       },
       {
         "number": 14,
-        "image": "assets/portfolio/page-14.webp",
+        "image": "assets/portfolio-20261027/page-14.webp",
         "title": "캐릭터 설정과 사건 전개"
       },
       {
         "number": 15,
-        "image": "assets/portfolio/page-15.webp",
+        "image": "assets/portfolio-20261027/page-15.webp",
         "title": "이벤트 퀘스트 진행 구조"
       },
       {
         "number": 16,
-        "image": "assets/portfolio/page-16.webp",
+        "image": "assets/portfolio-20261027/page-16.webp",
         "title": "컷신과 반복 플레이 콘텐츠"
       }
     ],
@@ -115,8 +115,8 @@ const projects = [
     "type": "IP REINTERPRETATION",
     "source": "몬길: STAR DIVE · 개인 캐릭터 기획",
     "subtitle": "유쾌한 동료에서 애착 가는 인물로",
-    "image": "heukryeon.webp",
-    "background": "heukryeon.webp",
+    "image": "portfolio-20261027/heukryeon.webp",
+    "background": "portfolio-20261027/heukryeon.webp",
     "character": null,
     "caption": "익숙한 외형 위에, 대화와 성장의 매력을.",
     "roman": "III",
@@ -132,22 +132,22 @@ const projects = [
     "pages": [
       {
         "number": 9,
-        "image": "assets/portfolio/page-09.webp",
+        "image": "assets/portfolio-20261027/page-09.webp",
         "title": "프로젝트 개요와 리뉴얼 방향"
       },
       {
         "number": 10,
-        "image": "assets/portfolio/page-10.webp",
+        "image": "assets/portfolio-20261027/page-10.webp",
         "title": "타깃 유저와 캐릭터 경험"
       },
       {
         "number": 11,
-        "image": "assets/portfolio/page-11.webp",
+        "image": "assets/portfolio-20261027/page-11.webp",
         "title": "캐릭터 특징과 상황별 대사"
       },
       {
         "number": 12,
-        "image": "assets/portfolio/page-12.webp",
+        "image": "assets/portfolio-20261027/page-12.webp",
         "title": "성장 서사와 본편 합류"
       }
     ],
@@ -166,8 +166,8 @@ const projects = [
     "type": "GAME CONCEPT & CONTENTS",
     "source": "순천 AI 게임잼 · Unity 팀 프로젝트 · 3일",
     "subtitle": "순천만을 수집의 재미로",
-    "image": "food.webp",
-    "background": "food.webp",
+    "image": "portfolio-20261027/food.webp",
+    "background": "portfolio-20261027/food.webp",
     "character": null,
     "caption": "순천만의 생태를, 친숙한 놀이로.",
     "roman": "IV",
@@ -183,12 +183,12 @@ const projects = [
     "pages": [
       {
         "number": 17,
-        "image": "assets/portfolio/page-17.webp",
+        "image": "assets/portfolio-20261027/page-17.webp",
         "title": "게임잼 프로젝트와 담당 업무"
       },
       {
         "number": 18,
-        "image": "assets/portfolio/page-18.webp",
+        "image": "assets/portfolio-20261027/page-18.webp",
         "title": "기획 의도와 AI 활용 프로세스"
       }
     ],
@@ -207,8 +207,8 @@ const projects = [
     "type": "CHARACTER & DIALOGUE",
     "source": "개인 프로젝트 · 캐릭터 챗봇 · 3개월",
     "subtitle": "숲을 함께 가꾸는 안내자",
-    "image": "leaf.webp",
-    "background": "leaf.webp",
+    "image": "portfolio-20261027/leaf.webp",
+    "background": "portfolio-20261027/leaf.webp",
     "character": null,
     "caption": "성격에서 말투, 음악과 목소리까지.",
     "roman": "V",
@@ -224,12 +224,12 @@ const projects = [
     "pages": [
       {
         "number": 19,
-        "image": "assets/portfolio/page-19.webp",
+        "image": "assets/portfolio-20261027/page-19.webp",
         "title": "리프 프로젝트 개요"
       },
       {
         "number": 20,
-        "image": "assets/portfolio/page-20.webp",
+        "image": "assets/portfolio-20261027/page-20.webp",
         "title": "캐릭터 설정과 음악·음성 연출"
       }
     ],
@@ -256,8 +256,8 @@ const projects = [
     "type": "CHARACTER & RELATIONSHIP",
     "source": "개인 프로젝트 · 제타 AI 캐릭터 챗봇 · 3일",
     "subtitle": "서툰 마음이 관계가 되기까지",
-    "image": "rain.webp",
-    "background": "rain.webp",
+    "image": "portfolio-20261027/rain.webp",
+    "background": "portfolio-20261027/rain.webp",
     "character": null,
     "caption": "소원을 들어주지만, 사랑에는 서툰 정령.",
     "roman": "VI",
@@ -273,12 +273,12 @@ const projects = [
     "pages": [
       {
         "number": 21,
-        "image": "assets/portfolio/page-21.webp",
+        "image": "assets/portfolio-20261027/page-21.webp",
         "title": "연우 프로젝트 개요"
       },
       {
         "number": 22,
-        "image": "assets/portfolio/page-22.webp",
+        "image": "assets/portfolio-20261027/page-22.webp",
         "title": "캐릭터·관계·대화 설계"
       }
     ],
