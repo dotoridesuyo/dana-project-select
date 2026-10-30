@@ -93,48 +93,6 @@ const projects = [
     "characterClass": "companion"
   },
   {
-    "id": "food",
-    "title": "돌아온 미식가",
-    "shortTitle": "돌아온 미식가",
-    "english": "THE RETURNING GOURMET",
-    "type": "GAME CONCEPT & CONTENTS",
-    "source": "순천 AI 게임잼 · Unity 팀 프로젝트 · 3일",
-    "subtitle": "순천만을 수집의 재미로",
-    "image": "portfolio-20261027/food.webp",
-    "background": "portfolio-20261027/food.webp",
-    "character": "foreground-20261027/food.webp",
-    "caption": "순천만의 생태를, 친숙한 놀이로.",
-    "roman": "III",
-    "hook": "순천만의 가치를,\n직접 모으고 즐기는 플레이로.",
-    "description": "노랑부리저어새 ‘노부리’가 갯벌 생물을 모으는 인형뽑기 게임입니다. 게임 콘셉트·캐릭터·랭크 콘텐츠와 AI 에셋 제작에 참여했으며, 순천 AI 게임잼에서 특별상을 수상했습니다.",
-    "scope": "콘셉트 · 캐릭터 · 랭크 콘텐츠 · AI 아트",
-    "structure": "생태 가치 탐색 → 인형뽑기 → 수집·경쟁",
-    "tags": [
-      "게임잼 특별상",
-      "콘텐츠 기획",
-      "드로잉·AI·리터칭"
-    ],
-    "pages": [
-      {
-        "number": 17,
-        "image": "assets/portfolio-20261027/page-17.webp",
-        "title": "게임잼 프로젝트와 담당 업무"
-      },
-      {
-        "number": 18,
-        "image": "assets/portfolio-20261027/page-18.webp",
-        "title": "기획 의도와 AI 활용 프로세스"
-      }
-    ],
-    "links": [
-      {
-        "label": "플레이 영상 보기",
-        "url": "https://drive.google.com/file/d/1l3cECFZ3r2-phTBmQqKnjnHYpbHYsN10/view"
-      }
-    ],
-    "characterClass": "companion"
-  },
-  {
     "id": "heukryeon",
     "title": "흑련",
     "shortTitle": "흑련 캐릭터 기획",
@@ -146,7 +104,7 @@ const projects = [
     "background": "portfolio-20261027/heukryeon.webp",
     "character": "portfolio-20261027/heukryeon.webp",
     "caption": "익숙한 외형 위에, 대화와 성장의 매력을.",
-    "roman": "IV",
+    "roman": "III",
     "hook": "능청스러운 농담 뒤에,\n알아갈수록 응원하게 되는 동료.",
     "description": "원작 흑련의 쿵푸 소녀 이미지를 계승하고, 능청스러운 대화와 성장 서사로 매력을 확장했습니다. 무술 가문과의 갈등·수련 경험을 본편 합류와 동료 관계에 연결했습니다.",
     "scope": "타깃 · 리뉴얼 방향 · 설정 · 서사 · 대사",
@@ -185,6 +143,48 @@ const projects = [
       }
     ],
     "characterClass": "standing"
+  },
+  {
+    "id": "food",
+    "title": "돌아온 미식가",
+    "shortTitle": "돌아온 미식가",
+    "english": "THE RETURNING GOURMET",
+    "type": "GAME CONCEPT & CONTENTS",
+    "source": "순천 AI 게임잼 · Unity 팀 프로젝트 · 3일",
+    "subtitle": "순천만을 수집의 재미로",
+    "image": "portfolio-20261027/food.webp",
+    "background": "portfolio-20261027/food.webp",
+    "character": "foreground-20261027/food.webp",
+    "caption": "순천만의 생태를, 친숙한 놀이로.",
+    "roman": "IV",
+    "hook": "순천만의 가치를,\n직접 모으고 즐기는 플레이로.",
+    "description": "노랑부리저어새 ‘노부리’가 갯벌 생물을 모으는 인형뽑기 게임입니다. 게임 콘셉트·캐릭터·랭크 콘텐츠와 AI 에셋 제작에 참여했으며, 순천 AI 게임잼에서 특별상을 수상했습니다.",
+    "scope": "콘셉트 · 캐릭터 · 랭크 콘텐츠 · AI 아트",
+    "structure": "생태 가치 탐색 → 인형뽑기 → 수집·경쟁",
+    "tags": [
+      "게임잼 특별상",
+      "콘텐츠 기획",
+      "드로잉·AI·리터칭"
+    ],
+    "pages": [
+      {
+        "number": 17,
+        "image": "assets/portfolio-20261027/page-17.webp",
+        "title": "게임잼 프로젝트와 담당 업무"
+      },
+      {
+        "number": 18,
+        "image": "assets/portfolio-20261027/page-18.webp",
+        "title": "기획 의도와 AI 활용 프로세스"
+      }
+    ],
+    "links": [
+      {
+        "label": "플레이 영상 보기",
+        "url": "https://drive.google.com/file/d/1l3cECFZ3r2-phTBmQqKnjnHYpbHYsN10/view"
+      }
+    ],
+    "characterClass": "companion"
   },
   {
     "id": "halloween",
