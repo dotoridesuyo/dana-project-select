@@ -9,8 +9,8 @@ const projects = [
     "source": "1인 개발 · 2D 내러티브 웹 게임 · 2주",
     "subtitle": "기억을 따라 마주하는 이별",
     "image": "portfolio-20261027/misttrain.webp",
-    "background": "foreground-20261027/train-scene.webp",
-    "character": "foreground-20261027/heroine.webp",
+    "background": "portfolio-20261027/misttrain.webp",
+    "character": null,
     "caption": "남겨진 기억에서, 살아온 시간의 의미를 찾다.",
     "roman": "I",
     "hook": "남겨진 기억을 따라,\n각자의 삶과 마지막 이별을 마주하다.",
@@ -53,8 +53,7 @@ const projects = [
         "label": "컨셉 기획 링크",
         "url": "https://dotoridesuyo.github.io/dana-project-select/mist-train-concept.html"
       }
-    ],
-    "characterClass": "standing"
+    ]
   },
   {
     "id": "halloween",
