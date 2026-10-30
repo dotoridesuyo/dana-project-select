@@ -1,7 +1,7 @@
 /* PC 레이아웃 설정. 숫자만 허용하며 브라우저별로 저장합니다. */
 (()=>{
   const STORAGE_KEY='dana-portfolio-layout-v1';
-  const projectIds=['misttrain','halloween','heukryeon','food','leaf','rain'];
+  const projectIds=['rain','leaf','food','heukryeon','halloween','misttrain'];
   const globalFields=[
     ['gutter','PC 좌우 여백',80,20,240],['maxWidth','내용 최대 폭',1280,960,1800],
     ['introPadding','소개 위아래 여백',32,12,120],['sectionGap','소개와 작품 간격',30,8,120],
