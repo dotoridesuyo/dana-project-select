@@ -20,7 +20,6 @@
 .gallery-page figcaption>span:last-child{margin-left:auto;color:#9b919f;font-size:9px;flex-shrink:0}
 .gallery-page-viewport{overflow:auto;overscroll-behavior:contain;border:1px solid #ffffff32;background:#fff;scrollbar-width:thin;scrollbar-color:#b8a27f #26222d}
 .gallery-page img{display:block;width:100%;height:auto;max-width:100%}
-.gallery-dialog.is-zoomed .gallery-page img{width:1920px;max-width:none}
 body:has(.gallery-dialog[open]){overflow:hidden}
 @media(max-width:780px){
  .resource-link{min-height:48px;font-size:12px}

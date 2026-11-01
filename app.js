@@ -39,8 +39,6 @@ function openDetail(e){
   const p=projects[selected];detailTrigger=e.currentTarget;
   document.querySelector('#dialog-title').textContent=p.shortTitle;
   document.querySelector('#gallery-summary').textContent=`포트폴리오 ${p.pages[0].number}–${p.pages.at(-1).number}페이지 · ${p.pages.length}장`;
-  detailDialog.classList.remove('is-zoomed');
-  const zoom=document.querySelector('#gallery-zoom');zoom.setAttribute('aria-pressed','false');zoom.textContent='확대 보기';
   document.querySelector('#detail-content').innerHTML=p.pages.map((page,i)=>`<figure class="gallery-page"><figcaption><span>${number(i)} / ${number(p.pages.length-1)}</span><span>${escapeHTML(page.title)}</span><span>P.${page.number}</span></figcaption><div class="gallery-page-viewport"><img src="${escapeHTML(page.image)}" alt="${escapeHTML(p.shortTitle)} — ${escapeHTML(page.title)}, 포트폴리오 ${page.number}페이지" width="1920" height="1080" draggable="false" loading="${i===0?'eager':'lazy'}" decoding="async"></div></figure>`).join('');
   detailDialog.showModal();detailDialog.scrollTop=0;document.querySelector('#close-detail').focus();
 }
@@ -72,10 +70,6 @@ galleryContent.addEventListener('dragstart',e=>e.preventDefault());
 detailDialog.addEventListener('close',finishGalleryDrag);
 window.addEventListener('blur',finishGalleryDrag);
 
-document.querySelector('#gallery-zoom').addEventListener('click',e=>{
-  const zoomed=detailDialog.classList.toggle('is-zoomed');
-  e.currentTarget.setAttribute('aria-pressed',String(zoomed));e.currentTarget.textContent=zoomed?'화면에 맞추기':'확대 보기';
-});
 
 document.querySelector('#close-detail').addEventListener('click',()=>detailDialog.close());
 detailDialog.addEventListener('close',()=>detailTrigger?.focus({preventScroll:true}));
