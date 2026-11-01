@@ -154,7 +154,7 @@ const projects = [
     "subtitle": "생성형 AI를 활용한 게임잼 수상작",
     "image": "portfolio-20261027/food.webp",
     "background": "portfolio-20261027/food.webp",
-    "character": "foreground-20261027/food.webp",
+    "character": "foreground-20261102/food-title.png",
     "caption": "순천만의 생태를, 친숙한 놀이로.",
     "roman": "IV",
     "hook": "순천만의 가치를,\n직접 모으고 즐기는 플레이로.",
