@@ -15,7 +15,7 @@ function selectProject(index,{scroll=false}={}){
   const stageBackground=document.querySelector('#stage-background');
   stageBackground.dataset.project=p.id;
   stageBackground.style.backgroundImage=p.character===p.background?'none':`url("assets/${p.background}")`;
-  display.innerHTML=`<div class="hero-art" aria-hidden="true"><span class="project-roman">${p.roman}</span><div class="art-orbit"></div><span class="art-spark">✧</span>${p.character?`<img class="hero-character ${p.characterClass||''}" src="assets/${p.character}" alt="">${p.id==='halloween'?`<img class="small-ghost" src="assets/portfolio-20261027/baby-ghost.webp" alt="">`:''}`:''}<span class="art-caption">${escapeHTML(p.caption)}</span></div><div class="project-info"><p class="project-type">PROJECT ${number(selected)} — ${escapeHTML(p.type)}</p><div class="project-source">${escapeHTML(p.source)}</div><h2 id="project-title" tabindex="-1">${escapeHTML(p.title).replace(/\n/g,'<br>')}</h2><div class="title-en">${escapeHTML(p.english)}</div><p class="project-hook">${escapeHTML(p.hook).replace(/\n/g,'<br>')}</p><p class="project-description">${escapeHTML(p.description)}</p><div class="info-row"><strong>기획 범위</strong><span>${escapeHTML(p.scope)}</span></div><div class="info-row"><strong>설계 흐름</strong><span>${escapeHTML(p.structure)}</span></div><div class="project-tags">${p.tags.map(t=>`<span>${escapeHTML(t)}</span>`).join('')}</div><div class="project-actions"><div class="resource-links" aria-label="프로젝트 관련 링크">${p.links.map(link=>link.url?`<a class="resource-link" href="${escapeHTML(link.url)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHTML(link.label)} (새 탭)"><span>${escapeHTML(link.label)}</span><span aria-hidden="true">↗</span></a>`:`<button class="resource-link" disabled><span>${escapeHTML(link.label)}</span><span class="resource-pending">준비 중</span></button>`).join('')}</div><button class="detail-button" id="open-detail"><span>자세히 보기</span><span aria-hidden="true">↗</span></button></div><p class="preview-note">포트폴리오 이미지 ${p.pages.length}장</p></div>`;
+  display.innerHTML=`<div class="hero-art" aria-hidden="true"><span class="project-roman">${p.roman}</span><div class="art-orbit"></div><span class="art-spark">✧</span>${p.character?`<img class="hero-character ${p.characterClass||''}" src="assets/${p.character}" alt="">${p.id==='halloween'?`<img class="small-ghost" src="assets/portfolio-20261027/baby-ghost.webp" alt="">`:''}`:''}</div><div class="project-info"><p class="project-type">PROJECT ${number(selected)} — ${escapeHTML(p.type)}</p><div class="project-source">${escapeHTML(p.source)}</div><h2 id="project-title" tabindex="-1">${escapeHTML(p.title).replace(/\n/g,'<br>')}</h2><p class="project-subtitle">${escapeHTML(p.subtitle)}</p><p class="project-hook">${escapeHTML(p.hook).replace(/\n/g,'<br>')}</p><p class="project-description">${escapeHTML(p.description)}</p><div class="info-row"><strong>기획 범위</strong><span>${escapeHTML(p.scope)}</span></div><div class="info-row"><strong>설계 흐름</strong><span>${escapeHTML(p.structure)}</span></div><div class="project-tags">${p.tags.map(t=>`<span>${escapeHTML(t)}</span>`).join('')}</div><div class="project-actions"><div class="resource-links" aria-label="프로젝트 관련 링크">${p.links.map(link=>link.url?`<a class="resource-link" href="${escapeHTML(link.url)}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHTML(link.label)} (새 탭)"><span>${escapeHTML(link.label)}</span><span aria-hidden="true">↗</span></a>`:`<button class="resource-link" disabled><span>${escapeHTML(link.label)}</span><span class="resource-pending">준비 중</span></button>`).join('')}</div><button class="detail-button" id="open-detail"><span>자세히 보기</span><span aria-hidden="true">↗</span></button></div><p class="preview-note">포트폴리오 이미지 ${p.pages.length}장</p></div>`;
   document.querySelector('#open-detail').addEventListener('click',openDetail);
   document.title=`${p.shortTitle} · 이야기를 만들어나가는 김단아`;
   window.PortfolioLayout?.refresh();
@@ -41,9 +41,37 @@ function openDetail(e){
   document.querySelector('#gallery-summary').textContent=`포트폴리오 ${p.pages[0].number}–${p.pages.at(-1).number}페이지 · ${p.pages.length}장`;
   detailDialog.classList.remove('is-zoomed');
   const zoom=document.querySelector('#gallery-zoom');zoom.setAttribute('aria-pressed','false');zoom.textContent='확대 보기';
-  document.querySelector('#detail-content').innerHTML=p.pages.map((page,i)=>`<figure class="gallery-page"><figcaption><span>${number(i)} / ${number(p.pages.length-1)}</span><span>${escapeHTML(page.title)}</span><span>P.${page.number}</span></figcaption><div class="gallery-page-viewport"><img src="${escapeHTML(page.image)}" alt="${escapeHTML(p.shortTitle)} — ${escapeHTML(page.title)}, 포트폴리오 ${page.number}페이지" width="1920" height="1080" loading="${i===0?'eager':'lazy'}" decoding="async"></div></figure>`).join('');
+  document.querySelector('#detail-content').innerHTML=p.pages.map((page,i)=>`<figure class="gallery-page"><figcaption><span>${number(i)} / ${number(p.pages.length-1)}</span><span>${escapeHTML(page.title)}</span><span>P.${page.number}</span></figcaption><div class="gallery-page-viewport"><img src="${escapeHTML(page.image)}" alt="${escapeHTML(p.shortTitle)} — ${escapeHTML(page.title)}, 포트폴리오 ${page.number}페이지" width="1920" height="1080" draggable="false" loading="${i===0?'eager':'lazy'}" decoding="async"></div></figure>`).join('');
   detailDialog.showModal();detailDialog.scrollTop=0;document.querySelector('#close-detail').focus();
 }
+
+// Drag anywhere in the gallery to scroll; touch keeps native pan and pinch.
+const galleryContent=document.querySelector('#detail-content');
+let galleryDrag=null;
+function finishGalleryDrag(){
+  const drag=galleryDrag;galleryDrag=null;
+  detailDialog.classList.remove('is-dragging');
+  if(drag&&galleryContent.hasPointerCapture(drag.id))galleryContent.releasePointerCapture(drag.id);
+}
+galleryContent.addEventListener('pointerdown',e=>{
+  if(e.pointerType!=='mouse'||e.button!==0||!e.isPrimary||e.target.closest('a,button,input,select,textarea'))return;
+  const viewport=e.target.closest('.gallery-page-viewport');
+  galleryDrag={id:e.pointerId,x:e.clientX,y:e.clientY,top:detailDialog.scrollTop,left:viewport?.scrollLeft||0,viewport,moved:false};
+  galleryContent.setPointerCapture(e.pointerId);
+});
+galleryContent.addEventListener('pointermove',e=>{
+  const drag=galleryDrag;if(!drag||e.pointerId!==drag.id)return;
+  const dx=e.clientX-drag.x,dy=e.clientY-drag.y;
+  if(!drag.moved&&Math.hypot(dx,dy)<5)return;
+  drag.moved=true;detailDialog.classList.add('is-dragging');e.preventDefault();
+  detailDialog.scrollTop=drag.top-dy;
+  if(drag.viewport)drag.viewport.scrollLeft=drag.left-dx;
+});
+for(const event of ['pointerup','pointercancel','lostpointercapture'])galleryContent.addEventListener(event,finishGalleryDrag);
+galleryContent.addEventListener('dragstart',e=>e.preventDefault());
+detailDialog.addEventListener('close',finishGalleryDrag);
+window.addEventListener('blur',finishGalleryDrag);
+
 document.querySelector('#gallery-zoom').addEventListener('click',e=>{
   const zoomed=detailDialog.classList.toggle('is-zoomed');
   e.currentTarget.setAttribute('aria-pressed',String(zoomed));e.currentTarget.textContent=zoomed?'화면에 맞추기':'확대 보기';

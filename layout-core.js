@@ -11,16 +11,16 @@
   ].map(([id,label,value,min,max])=>({id,label,value,min,max}));
   const targets=[
     ['brand-name','헤더 이름','.brand strong','projects','text'],['brand-role','헤더 직무','.brand small','projects','text'],
-    ['header-caption','헤더 한 줄 소개','.header-caption','projects','text'],
+    
     ['intro-title','소개 제목','#designer-intro-title','projects','text'],['intro-lead','소개 강조 문장','.intro-lead','projects','text'],
     ['intro-description','소개 본문','.intro-copy>p:not(.intro-lead)','projects','text'],['intro-tags','소개 분야','.intro-specialties','projects','box'],
     ['intro-character-title','캐릭터 매력 설계 제목','#intro-character-title','projects','text'],['intro-character-copy','캐릭터 매력 설계 설명','#intro-character-copy','projects','text'],
     ['intro-visual-title','대화·관계 설계 제목','#intro-visual-title','projects','text'],['intro-visual-copy','대화·관계 설계 설명','#intro-visual-copy','projects','text'],
     ['intro-production-title','표현 판단과 소통 제목','#intro-production-title','projects','text'],['intro-production-copy','표현 판단과 소통 설명','#intro-production-copy','projects','text'],
     ['archive-title','프로젝트 목록 제목','#archive-heading','projects','text'],
-    ['project-art','대표 이미지 영역','.hero-art','projects','box',true],['art-caption','이미지 아래 문구','.art-caption','projects','text',true],
+    ['project-art','대표 이미지 영역','.hero-art','projects','box',true],
     ['project-kicker','프로젝트 번호·분야','.project-type','projects','text',true],['project-source','프로젝트 분류','.project-source','projects','text',true],
-    ['project-title','프로젝트 제목','#project-title','projects','text',true],['project-english','프로젝트 영문명','.title-en','projects','text',true],
+    ['project-title','프로젝트 제목','#project-title','projects','text',true],['project-subtitle','프로젝트 부제','.project-subtitle','projects','text',true],
     ['project-hook','프로젝트 강조 문장','.project-hook','projects','text',true],['project-description','프로젝트 설명','.project-description','projects','text',true],
     ['scope-row','기획 범위','.info-row','projects','box',true,0],['structure-row','설계 흐름','.info-row','projects','box',true,1],
     ['project-tags','프로젝트 태그','.project-tags','projects','box',true],['detail-button','자세히 보기 버튼','.detail-button','projects','box',true],
@@ -28,8 +28,7 @@
     ['resource-links','추가 링크 버튼 묶음','.resource-links','projects','box',true],
     ['start-cluster','시작 영역 전체','.auto-title-center','start','box'],['start-button','시작 버튼','#start-game','start','box'],
     ['start-label','PORTFOLIO START 글자','#start-game>strong','start','text'],['start-note','시작 안내 문구','#auto-start-note','start','text'],
-    ['welcome-role','인사말 직무','.welcome-scene .title-eyebrow','greeting','text'],['welcome-title','인사말 제목','#welcome-title','greeting','text'],
-    ['welcome-description','인사말 설명','#welcome-description','greeting','text']
+    ['welcome-role','인사말 직무','.welcome-scene .title-eyebrow','greeting','text'],['welcome-title','인사말 제목','#welcome-title','greeting','text']
   ].map(([id,label,selector,scene,kind,project=false,index=0])=>({id,label,selector,scene,kind,project,index}));
   const properties={x:[-800,800],y:[-800,800],fontSize:[8,180],lineHeight:[.6,4],letterSpacing:[-5,30],width:[0,1800],height:[0,1200]};
   const defaults=()=>({schema:'dana-portfolio-layout',version:1,globals:Object.fromEntries(globalFields.map(f=>[f.id,f.value])),nodes:{},projects:{}});

@@ -36,3 +36,16 @@ body:has(.gallery-dialog[open]){overflow:hidden}
  .gallery-page figcaption{font-size:10px;gap:8px;align-items:flex-start}
  .gallery-page figcaption>span:first-child{font-size:8px}
 }
+
+/* Clearer project labels and grab-to-scroll portfolio pages. */
+.stage-top{justify-content:flex-end}
+.stage-bottom{justify-content:flex-end}
+.project-subtitle{margin:13px 0 22px;color:#d2c3af;font-size:12px;line-height:1.7;word-break:keep-all;overflow-wrap:anywhere}
+.card-subtitle{line-height:1.6;word-break:keep-all;overflow-wrap:anywhere}
+.project-card{min-height:124px}
+.gallery-dialog{overflow-y:auto;scroll-behavior:auto}
+.gallery-pages{cursor:grab;user-select:none;-webkit-user-select:none}
+.gallery-dialog.is-dragging .gallery-pages{cursor:grabbing}
+.gallery-page-viewport{overflow-y:hidden;overscroll-behavior-x:contain;overscroll-behavior-y:auto}
+.gallery-page img{-webkit-user-drag:none;user-select:none}
+@media(max-width:780px){.project-list{height:140px}.project-card{height:124px}.project-subtitle{font-size:11px;margin:12px 0 20px}}
