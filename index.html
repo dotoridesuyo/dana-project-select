@@ -43,8 +43,7 @@
 .journey-item .journey-note{font-size:11px;color:#8f8c9b;margin-top:3px}
 .journey:has(input[value="education"]:checked) .journey-item:not([data-kind="education"]),
 .journey:has(input[value="award"]:checked) .journey-item:not([data-kind="award"]),
-.journey:has(input[value="experience"]:checked) .journey-item:not([data-kind="experience"]),
-.journey:has(input[value="qualification"]:checked) .journey-item:not([data-kind="qualification"]){display:none}
+.journey:has(input[value="experience"]:checked) .journey-item:not([data-kind="experience"]){display:none}
 .journey-aside{border:1px solid #dfc59a30;background:linear-gradient(145deg,#dfc59a09,transparent 65%);padding:27px 24px}
 .journey-aside h3{font-size:15px;font-weight:600;letter-spacing:-.025em;margin:0 0 13px}
 .journey-aside p{color:#aaa5b2;font-size:11px;line-height:1.9;word-break:keep-all;margin:0 0 18px}
@@ -54,6 +53,11 @@
 .journey-aside .eyebrow{font-size:8px;margin-bottom:12px}
 @media(max-width:1100px){.journey-layout{gap:32px;grid-template-columns:minmax(0,1fr) 240px}.journey-aside{padding:24px 20px}}
 @media(max-width:780px){.journey{padding:48px 0;margin-top:20px}.journey-heading{display:block;margin-bottom:25px}.journey-heading>p{margin-top:15px;font-size:11px}.journey-layout{grid-template-columns:1fr;gap:35px}.journey-filters{gap:6px;margin-bottom:30px}.journey-filters span{padding:8px 11px;font-size:10px}.journey-item{padding-bottom:28px;padding-left:8px}.journey-item h3{font-size:15px}.journey-meta{font-size:10px}.journey-item p{font-size:11px}.journey-aside{padding:24px}.journey-heading h2{font-size:32px}}
+.journey-qualifications{margin:0}
+.journey-qualifications>div{padding:12px 0;border-bottom:1px solid #ffffff14}
+.journey-qualifications>div:last-child{border-bottom:0;padding-bottom:0}
+.journey-qualifications dt{font-size:12px;font-weight:500;color:#ded1bc;line-height:1.7}
+.journey-qualifications dd{margin:4px 0 0;color:#aaa5b2;font-size:10px;line-height:1.7}
 </style>
 </head>
 <body class="at-title">
@@ -119,25 +123,21 @@
               <label><input type="radio" name="journey-filter" value="education"><span>학력</span></label>
               <label><input type="radio" name="journey-filter" value="award"><span>수상</span></label>
               <label><input type="radio" name="journey-filter" value="experience"><span>해외 경험</span></label>
-              <label><input type="radio" name="journey-filter" value="qualification"><span>어학·자격</span></label>
             </fieldset>
             <ol class="journey-list" aria-label="학력과 활동 이력">
               <li class="journey-item" data-kind="education"><div class="journey-meta"><span>2023.06 – 2026.02</span><span class="journey-kind">학력</span></div><h3>영남대학교 대학원 석사 졸업</h3><p>산업디자인학과</p><p class="journey-note">학점 4.42 / 4.5</p></li>
-              <li class="journey-item" data-kind="qualification"><div class="journey-meta"><span>2026.02</span><span class="journey-kind">어학</span></div><h3>TOEIC Speaking IH</h3><p>한국TOEIC위원회</p></li>
               <li class="journey-item" data-kind="award"><div class="journey-meta"><span>2025.10</span><span class="journey-kind">수상</span></div><h3>순천 AI 게임잼</h3><p>특별상 · 순천시</p></li>
-              <li class="journey-item" data-kind="qualification"><div class="journey-meta"><span>2025.07</span><span class="journey-kind">어학</span></div><h3>JLPT N2</h3><p>일본국제교육지원협회 (JEES)</p></li>
-              <li class="journey-item" data-kind="qualification"><div class="journey-meta"><span>2024.11</span><span class="journey-kind">자격</span></div><h3>컴퓨터활용능력 2급</h3><p>대한상공회의소</p></li>
               <li class="journey-item" data-kind="experience"><div class="journey-meta"><span>2023.06</span><span class="journey-kind">해외 경험</span></div><h3>Artel 기업 문제 해결 프로젝트</h3><p>Artel Electronics Group · 우즈베키스탄</p><p class="journey-note">현지 시장조사, 고객 인터뷰 및 전략 제안</p></li>
               <li class="journey-item" data-kind="education"><div class="journey-meta"><span>2020.03 – 2023.06</span><span class="journey-kind">학력</span></div><h3>영남대학교 학사 졸업</h3><p>산업디자인 전공</p><p class="journey-note">학점 3.82 / 4.5</p></li>
               <li class="journey-item" data-kind="award"><div class="journey-meta"><span>2022.11</span><span class="journey-kind">수상</span></div><h3>YU 창업 문화 토크쇼 왕중왕전</h3><p>영남대학교 · 영남대 총장상 (1등)</p></li>
               <li class="journey-item" data-kind="award"><div class="journey-meta"><span>2022.10</span><span class="journey-kind">수상</span></div><h3>지역 도시 혁신 아이디어</h3><p>3등</p></li>
               <li class="journey-item" data-kind="award"><div class="journey-meta"><span>2022.10</span><span class="journey-kind">수상</span></div><h3>Global Innovator Festa</h3><p>3등</p></li>
-              <li class="journey-item" data-kind="qualification"><div class="journey-meta"><span>2022.08</span><span class="journey-kind">자격</span></div><h3>2종 보통 운전면허</h3><p>대구지방경찰청</p></li>
               <li class="journey-item" data-kind="award"><div class="journey-meta"><span>2022.06</span><span class="journey-kind">수상</span></div><h3>2022 그랑 데모 데이</h3><p>영남대학교 · 우수상</p></li>
               <li class="journey-item" data-kind="education"><div class="journey-meta"><span>2017 – 2020</span><span class="journey-kind">학력</span></div><h3>구암고등학교 졸업</h3></li>
             </ol>
           </div>
-          <aside class="journey-aside" aria-label="활용 도구와 제작 역량">
+          <aside class="journey-aside" aria-label="어학·자격 및 활용 도구">
+            <section><span class="eyebrow">LANGUAGE &amp; LICENSE</span><h3>어학·자격</h3><dl class="journey-qualifications"><div><dt>JLPT N2</dt><dd>2025.07</dd></div><div><dt>TOEIC Speaking IH</dt><dd>2026.02</dd></div><div><dt>2종 보통 운전면허</dt><dd>2022.08</dd></div></dl></section>
             <section><span class="eyebrow">AI TOOLS</span><h3>새로운 도구로 넓히는 표현</h3><p>다양한 AI 도구를 활용한 기획 및 콘텐츠 제작</p><ul class="journey-tools"><li>ChatGPT</li><li>Suno</li><li>Midjourney</li><li>Bing</li></ul></section>
             <section><span class="eyebrow">SKILLS</span><h3>기획에서 제작까지</h3><p>인디게임 개발, 디자인 및 문서 작성</p><ul class="journey-tools"><li>Unity</li><li>Photoshop</li><li>Illustrator</li><li>Excel</li><li>PowerPoint</li><li>Word</li></ul></section>
           </aside>
