@@ -181,53 +181,49 @@
 
 
 <script>
-/* One shared path draws connected rings and line with eased scroll progress. */
+/* Reveal the connected rail with one shared vertical scroll frontier. */
 (()=>{
   const section=document.querySelector('#journey'),list=section?.querySelector('.journey-list');
   if(!list)return;
   const items=[...list.querySelectorAll('.journey-item')],ns='http://www.w3.org/2000/svg';
   const svg=document.createElementNS(ns,'svg'),track=document.createElementNS(ns,'path'),fill=document.createElementNS(ns,'path');
   svg.classList.add('journey-rail');svg.setAttribute('aria-hidden','true');
-  track.classList.add('rail-track');fill.classList.add('rail-fill');svg.append(track,fill);list.prepend(svg);
+  const defs=document.createElementNS(ns,'defs'),clip=document.createElementNS(ns,'clipPath'),reveal=document.createElementNS(ns,'rect');
+  clip.id='journey-rail-reveal';clip.setAttribute('clipPathUnits','userSpaceOnUse');
+  reveal.setAttribute('x','-16');reveal.setAttribute('y','0');reveal.setAttribute('width','48');reveal.setAttribute('height','0');
+  clip.append(reveal);defs.append(clip);
+  track.classList.add('rail-track');fill.classList.add('rail-fill');
+  fill.setAttribute('clip-path','url(#journey-rail-reveal)');svg.append(defs,track,fill);list.prepend(svg);
   const reduced=matchMedia('(prefers-reduced-motion: reduce)');
-  let dots=[],segments=[],total=0,current=0,frame=0,lastTime=0,dirty=true;
+  let dots=[],total=0,current=0,frame=0,lastTime=0,dirty=true;
   function measure(){
     const top=list.getBoundingClientRect().top;
     dots=items.filter(el=>el.getClientRects().length).map(el=>({el,y:el.getBoundingClientRect().top-top+12}));
-    let d='',length=0;segments=[];
+    let d='';
     dots.forEach((dot,i)=>{
       const y=dot.y,r=5;
       d+='M8 '+(y-r)+' A5 5 0 1 1 8 '+(y+r)+' A5 5 0 1 1 8 '+(y-r)+' ';
-      segments.push({from:y-r,to:y+r,start:length,length:2*Math.PI*r});
-      length+=2*Math.PI*r;
       if(i<dots.length-1){
-        const next=dots[i+1].y-r,gap=Math.max(0,next-y-r);
+        const next=dots[i+1].y-r;
         d+='M8 '+(y+r)+' V'+next+' ';
-        segments.push({from:y+r,to:next,start:length,length:gap});length+=gap;
       }
     });
     track.setAttribute('d',d);fill.setAttribute('d',d);
     svg.setAttribute('height',Math.max(1,(dots.at(-1)?.y||0)+6));
-    total=length;fill.style.strokeDasharray=total+' '+total;
+    total=(dots.at(-1)?.y||0)+6;
     current=Math.min(current,total);dirty=false;
   }
   function draw(time){
     frame=0;if(dirty)measure();if(!dots.length)return;
     const top=list.getBoundingClientRect().top;
     const cursor=innerHeight*.5-top;
-    let target=0;
-    for(const segment of segments){
-      const ratio=Math.max(0,Math.min(1,(cursor-segment.from)/Math.max(.001,segment.to-segment.from)));
-      target=Math.max(target,segment.start+segment.length*ratio);
-      if(cursor<segment.to)break;
-    }
-    if(cursor<dots[0].y-5)target=0;
+    const target=Math.max(0,Math.min(total,cursor));
     const dt=lastTime?Math.min(48,time-lastTime):16;lastTime=time;
     current=reduced.matches?target:current+(target-current)*(1-Math.exp(-dt/95));
     if(Math.abs(target-current)<.08)current=target;
-    fill.style.strokeDashoffset=String(Math.max(0,total-current));
+    reveal.setAttribute('height',String(current));
     items.forEach(el=>el.classList.remove('is-reached'));
-    dots.forEach((dot,i)=>{const ring=segments[i*2];dot.el.classList.toggle('is-reached',current>=ring.start+ring.length-.1);});
+    dots.forEach(dot=>{dot.el.classList.toggle('is-reached',current>=dot.y+5);});
     if(current!==target)frame=requestAnimationFrame(draw);else lastTime=0;
   }
   function schedule(){if(!frame)frame=requestAnimationFrame(draw);}
