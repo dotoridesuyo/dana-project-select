@@ -214,8 +214,7 @@
   function draw(time){
     frame=0;if(dirty)measure();if(!dots.length)return;
     const top=list.getBoundingClientRect().top;
-    const cursor=innerHeight*.64-top;
-    const atEnd=scrollY+innerHeight>=document.documentElement.scrollHeight-2;
+    const cursor=innerHeight*.5-top;
     let target=0;
     for(const segment of segments){
       const ratio=Math.max(0,Math.min(1,(cursor-segment.from)/Math.max(.001,segment.to-segment.from)));
@@ -223,7 +222,6 @@
       if(cursor<segment.to)break;
     }
     if(cursor<dots[0].y-5)target=0;
-    if(atEnd)target=total;
     const dt=lastTime?Math.min(48,time-lastTime):16;lastTime=time;
     current=reduced.matches?target:current+(target-current)*(1-Math.exp(-dt/95));
     if(Math.abs(target-current)<.08)current=target;
