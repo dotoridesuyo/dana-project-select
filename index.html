@@ -58,6 +58,27 @@
 .journey-qualifications>div:last-child{border-bottom:0;padding-bottom:0}
 .journey-qualifications dt{font-size:12px;font-weight:500;color:#ded1bc;line-height:1.7}
 .journey-qualifications dd{margin:4px 0 0;color:#aaa5b2;font-size:10px;line-height:1.7}
+
+/* A single SVG rail carries both the line and milestone rings. */
+.journey-list::before,.journey-list::after,.journey-item::before{display:none}
+.journey-rail{position:absolute;left:-3px;top:0;width:16px;overflow:visible;pointer-events:none}
+.journey-rail path{fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.journey-rail .rail-track{stroke:#ffffff25}
+.journey-rail .rail-fill{stroke:var(--gold);filter:drop-shadow(0 0 3px #dfc59a45)}
+.journey-item h3{transition:color .25s}
+.journey-item.is-reached h3{color:#f4dfbc}
+.journey-item .journey-thesis{margin-top:14px;padding:13px 16px;border-left:2px solid #dfc59a55;background:#dfc59a07;font-size:11px;line-height:1.9;color:#c0b6a8;max-width:620px}
+.journey-thesis>span{display:block;font-size:10px;color:var(--gold);margin-bottom:5px}
+.journey-qualifications dt>span{display:block;font-size:10px;color:var(--gold);font-weight:400;margin-top:3px}
+.work-experience{border-top:1px solid var(--line);margin-top:60px;padding-top:38px}
+.work-experience>header h2{font-size:25px;font-weight:600;letter-spacing:-.04em;margin:12px 0 25px}
+.work-experience-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.work-experience-grid article{border:1px solid #dfc59a25;background:#ffffff02;padding:25px 22px}
+.work-experience-grid .work-period{font-size:10px;color:var(--gold);margin:0 0 15px;letter-spacing:.04em}
+.work-experience-grid h3{font-size:16px;margin:0 0 14px;line-height:1.7;font-weight:600;letter-spacing:-.02em}
+.work-experience-grid h3>span{display:block;font-size:11px;color:#bfb4a5;font-weight:400;margin-top:3px}
+.work-experience-grid article>p:last-child{font-size:11px;color:#aaa5b2;line-height:1.9;word-break:keep-all;margin-bottom:0}
+@media(max-width:780px){.work-experience{margin-top:38px;padding-top:30px}.work-experience-grid{grid-template-columns:1fr}.work-experience-grid article{padding:23px}.journey-item .journey-thesis{padding:11px 13px;font-size:10px}}
 </style>
 </head>
 <body class="at-title">
@@ -125,23 +146,31 @@
               <label><input type="radio" name="journey-filter" value="experience"><span>해외 경험</span></label>
             </fieldset>
             <ol class="journey-list" aria-label="학력과 활동 이력">
-              <li class="journey-item" data-kind="education"><div class="journey-meta"><span>2017</span><span class="journey-kind">학력</span></div><h3>구암고등학교 입학</h3></li>
-              <li class="journey-item" data-kind="education"><div class="journey-meta"><span>2020.03</span><span class="journey-kind">학력</span></div><h3>영남대학교 입학</h3><p>산업디자인 전공</p><p class="journey-note">학점 3.82 / 4.5</p></li>
-              <li class="journey-item" data-kind="award"><div class="journey-meta"><span>2022.06</span><span class="journey-kind">수상</span></div><h3>2022 그랑 데모 데이</h3><p>영남대학교 · 우수상</p></li>
-              <li class="journey-item" data-kind="award"><div class="journey-meta"><span>2022.10</span><span class="journey-kind">수상</span></div><h3>지역 도시 혁신 아이디어</h3><p>3등</p></li>
-              <li class="journey-item" data-kind="award"><div class="journey-meta"><span>2022.10</span><span class="journey-kind">수상</span></div><h3>Global Innovator Festa</h3><p>3등</p></li>
-              <li class="journey-item" data-kind="award"><div class="journey-meta"><span>2022.11</span><span class="journey-kind">수상</span></div><h3>YU 창업 문화 토크쇼 왕중왕전</h3><p>영남대학교 · 영남대 총장상 (1등)</p></li>
+              <li class="journey-item" data-kind="education"><div class="journey-meta"><span>2023.06 – 2026.02</span><span class="journey-kind">학력</span></div><h3>영남대학교 일반대학원 석사</h3><p>산업디자인학과</p><p class="journey-note">학점 4.42 / 4.5</p><p class="journey-thesis"><span>석사학위논문</span>「페르소나 기반 챗봇의 대화형 인터페이스에서 디자인 요소가 사용자 인식에 미치는 영향 : 색상, 폰트, 말풍선을 중심으로」</p></li>
+              <li class="journey-item" data-kind="award"><div class="journey-meta"><span>2025.10</span><span class="journey-kind">수상</span></div><h3>순천 AI 게임잼 대회 수상</h3><p>특별상 · 순천시</p></li>
               <li class="journey-item" data-kind="experience"><div class="journey-meta"><span>2023.06</span><span class="journey-kind">해외 경험</span></div><h3>Artel 기업 문제 해결 프로젝트</h3><p>Artel Electronics Group · 우즈베키스탄</p><p class="journey-note">현지 시장조사, 고객 인터뷰 및 전략 제안</p></li>
-              <li class="journey-item" data-kind="award"><div class="journey-meta"><span>2025.10</span><span class="journey-kind">수상</span></div><h3>순천 AI 게임잼</h3><p>특별상 · 순천시</p></li>
-              <li class="journey-item" data-kind="education"><div class="journey-meta"><span>2023.06 – 2026.02</span><span class="journey-kind">학력</span></div><h3>영남대학교 일반대학원 석사</h3><p>산업디자인학과</p><p class="journey-note">학점 4.42 / 4.5</p></li>
+              <li class="journey-item" data-kind="award"><div class="journey-meta"><span>2022.11</span><span class="journey-kind">수상</span></div><h3>YU 창업 문화 토크쇼 왕중왕전 대회 수상</h3><p>영남대학교 · 영남대 총장상 (1등)</p></li>
+              <li class="journey-item" data-kind="award"><div class="journey-meta"><span>2022.10</span><span class="journey-kind">수상</span></div><h3>Global Innovator Festa 대회 수상</h3><p>3등</p></li>
+              <li class="journey-item" data-kind="award"><div class="journey-meta"><span>2022.10</span><span class="journey-kind">수상</span></div><h3>지역 도시 혁신 아이디어 대회 수상</h3><p>3등</p></li>
+              <li class="journey-item" data-kind="award"><div class="journey-meta"><span>2022.06</span><span class="journey-kind">수상</span></div><h3>2022 그랑 데모 데이 대회 수상</h3><p>영남대학교 · 우수상</p></li>
+              <li class="journey-item" data-kind="education"><div class="journey-meta"><span>2020.03</span><span class="journey-kind">학력</span></div><h3>영남대학교 입학</h3><p>산업디자인 전공</p><p class="journey-note">학점 3.82 / 4.5</p></li>
             </ol>
           </div>
           <aside class="journey-aside" aria-label="어학·자격 및 활용 도구">
-            <section><span class="eyebrow">LANGUAGE &amp; LICENSE</span><h3>어학·자격</h3><dl class="journey-qualifications"><div><dt>JLPT N2</dt><dd>2025.07</dd></div><div><dt>TOEIC Speaking IH</dt><dd>2026.02</dd></div><div><dt>컴퓨터활용능력 2급</dt><dd>2024.11</dd></div><div><dt>2종 보통 운전면허</dt><dd>2022.08</dd></div></dl></section>
+            <section><span class="eyebrow">LANGUAGE &amp; LICENSE</span><h3>어학·자격</h3><dl class="journey-qualifications"><div><dt>일본어 <span>회화 능숙 · 상</span></dt><dd>JLPT N2 · 2025.07</dd></div><div><dt>영어 <span>회화 능숙 · 상</span></dt><dd>TOEIC Speaking IH · 2026.03</dd></div><div><dt>컴퓨터활용능력 2급</dt><dd>2024.11</dd></div><div><dt>2종 보통 운전면허</dt><dd>2022.08</dd></div></dl></section>
             <section><span class="eyebrow">AI TOOLS</span><h3>새로운 도구로 넓히는 표현</h3><p>다양한 AI 도구를 활용한 기획 및 콘텐츠 제작</p><ul class="journey-tools"><li>ChatGPT</li><li>Suno</li><li>Midjourney</li><li>Bing</li></ul></section>
             <section><span class="eyebrow">SKILLS</span><h3>기획에서 제작까지</h3><p>인디게임 개발, 디자인 및 문서 작성</p><ul class="journey-tools"><li>Unity</li><li>Photoshop</li><li>Illustrator</li><li>Excel</li><li>PowerPoint</li><li>Word</li></ul></section>
           </aside>
         </div>
+
+        <section class="work-experience" aria-labelledby="work-experience-title">
+          <header><span class="eyebrow">EXPERIENCE</span><h2 id="work-experience-title">함께하며 쌓은 경험</h2></header>
+          <div class="work-experience-grid">
+            <article><p class="work-period">현재 근무 중</p><h3>국립대구과학관 <span>보조강사</span></h3><p>교육 캠프 프로그램의 학생 관리와 인솔, 교육 프로그램 진행을 보조합니다.</p></article>
+            <article><p class="work-period">4년</p><h3>아동미술학원 <span>보조강사</span></h3><p>수업 자료 제작과 준비, 수업 보조 및 중등부 입시미술 준비반 커리큘럼 제작을 경험했습니다.</p></article>
+            <article><p class="work-period">2026.10</p><h3>칠곡군 · PlanB <span>보조강사</span></h3><p>북삼읍 농촌중심지활성화사업 지역역량강화(S/W) 사업에서 ‘우리집 택호 만들기’ 프로그램을 보조했습니다.</p></article>
+          </div>
+        </section>
       </section>
     </main>
     <footer class="site-footer"><span>© 2026 KIM DANA</span></footer>
@@ -150,40 +179,65 @@
   <dialog id="profile-dialog" aria-labelledby="profile-title"><button class="dialog-close" id="close-profile" aria-label="기획자 소개 닫기">✕</button><span class="eyebrow">ABOUT ME</span><h2 id="profile-title">김단아<span>이야기를 만들어나가는 기획자 포트폴리오</span></h2><p class="profile-lead">다시 대화하고 싶은 캐릭터를 기획합니다.</p><p>캐릭터를 깊이 즐기고 직접 창작해 온 경험을 바탕으로, 어떤 성격과 말투, 관계가 애착을 만드는지 고민합니다. 이 매력이 대화 속 반응과 관계 변화로 이어지도록 기획합니다.</p><p>디자인 전공과 드로잉·AI 이미지 제작·포토샵 리터칭 경험은 캐릭터의 매력을 살릴 표현을 판단하는 기반입니다. 직접 제작해 본 이해를 바탕으로 기획 의도와 표현 기준을 협업 상대에게 명확히 전달합니다.</p><p>리프와 연우 프로젝트에서 캐릭터 설정과 말투·관계 기획을 정리하고, 직접 대화할 수 있는 캐릭터로 연결했습니다.</p><dl class="profile-capabilities"><div><dt>캐릭터 매력 설계</dt><dd>성격·말투·관계를 연결해 대화하고 싶은 캐릭터 설정</dd></div><div><dt>대화·관계 설계</dt><dd>캐릭터다운 반응과 관계 변화가 이어지는 대화 흐름</dd></div><div><dt>표현 판단과 소통</dt><dd>디자인 경험으로 표현을 판단하고 기획 의도를 명확히 전달</dd></div></dl><div class="profile-fields"><span>CHARACTER</span><span>DIALOGUE</span><span>COMMUNICATION</span></div></dialog>
   <noscript><p class="noscript">프로젝트 선택 기능은 자바스크립트가 필요합니다.</p></noscript>
 
+
 <script>
-/* Fill the timeline to the reader's position, including filtered layouts. */
+/* One shared path draws connected rings and line with eased scroll progress. */
 (()=>{
-  const section=document.querySelector('#journey');
-  const list=section?.querySelector('.journey-list');
+  const section=document.querySelector('#journey'),list=section?.querySelector('.journey-list');
   if(!list)return;
-  const items=[...list.querySelectorAll('.journey-item')];
-  let frame=0;
-  function update(){
-    frame=0;
-    const visible=items.filter(item=>item.getClientRects().length);
-    if(!visible.length)return;
-    const bounds=list.getBoundingClientRect();
-    const dots=visible.map(item=>({item,y:item.getBoundingClientRect().top+12}));
-    const start=dots[0].y;
-    const length=Math.max(0,dots.at(-1).y-start);
-    const atPageEnd=window.scrollY+window.innerHeight>=document.documentElement.scrollHeight-2;
-    const progress=atPageEnd?length:Math.max(0,Math.min(length,window.innerHeight*.65-start));
-    list.style.setProperty('--journey-track',length+'px');
-    list.style.setProperty('--journey-progress',progress+'px');
-    list.style.setProperty('--journey-start',(start-bounds.top)+'px');
-    list.classList.add('journey-animated');
-    const reached=new Set(dots.filter(dot=>dot.y<=start+progress&&
-      (progress>0||start<=window.innerHeight*.65)).map(dot=>dot.item));
-    items.forEach(item=>item.classList.toggle('is-reached',reached.has(item)));
+  const items=[...list.querySelectorAll('.journey-item')],ns='http://www.w3.org/2000/svg';
+  const svg=document.createElementNS(ns,'svg'),track=document.createElementNS(ns,'path'),fill=document.createElementNS(ns,'path');
+  svg.classList.add('journey-rail');svg.setAttribute('aria-hidden','true');
+  track.classList.add('rail-track');fill.classList.add('rail-fill');svg.append(track,fill);list.prepend(svg);
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+  let dots=[],segments=[],total=0,current=0,frame=0,lastTime=0,dirty=true;
+  function measure(){
+    const top=list.getBoundingClientRect().top;
+    dots=items.filter(el=>el.getClientRects().length).map(el=>({el,y:el.getBoundingClientRect().top-top+12}));
+    let d='',length=0;segments=[];
+    dots.forEach((dot,i)=>{
+      const y=dot.y,r=5;
+      d+='M8 '+(y-r)+' A5 5 0 1 1 8 '+(y+r)+' A5 5 0 1 1 8 '+(y-r)+' ';
+      segments.push({from:y-r,to:y+r,start:length,length:2*Math.PI*r});
+      length+=2*Math.PI*r;
+      if(i<dots.length-1){
+        const next=dots[i+1].y-r,gap=Math.max(0,next-y-r);
+        d+='M8 '+(y+r)+' V'+next+' ';
+        segments.push({from:y+r,to:next,start:length,length:gap});length+=gap;
+      }
+    });
+    track.setAttribute('d',d);fill.setAttribute('d',d);
+    svg.setAttribute('height',Math.max(1,(dots.at(-1)?.y||0)+6));
+    total=length;fill.style.strokeDasharray=total+' '+total;
+    current=Math.min(current,total);dirty=false;
   }
-  function schedule(){if(!frame)frame=requestAnimationFrame(update);}
-  window.addEventListener('scroll',schedule,{passive:true});
-  window.addEventListener('resize',schedule,{passive:true});
-  window.addEventListener('pageshow',schedule);
-  section.addEventListener('change',schedule);
-  new ResizeObserver(schedule).observe(list);
-  document.fonts?.ready.then(schedule);
-  schedule();
+  function draw(time){
+    frame=0;if(dirty)measure();if(!dots.length)return;
+    const top=list.getBoundingClientRect().top;
+    const cursor=innerHeight*.64-top;
+    const atEnd=scrollY+innerHeight>=document.documentElement.scrollHeight-2;
+    let target=0;
+    for(const segment of segments){
+      const ratio=Math.max(0,Math.min(1,(cursor-segment.from)/Math.max(.001,segment.to-segment.from)));
+      target=Math.max(target,segment.start+segment.length*ratio);
+      if(cursor<segment.to)break;
+    }
+    if(cursor<dots[0].y-5)target=0;
+    if(atEnd)target=total;
+    const dt=lastTime?Math.min(48,time-lastTime):16;lastTime=time;
+    current=reduced.matches?target:current+(target-current)*(1-Math.exp(-dt/95));
+    if(Math.abs(target-current)<.08)current=target;
+    fill.style.strokeDashoffset=String(Math.max(0,total-current));
+    items.forEach(el=>el.classList.remove('is-reached'));
+    dots.forEach((dot,i)=>{const ring=segments[i*2];dot.el.classList.toggle('is-reached',current>=ring.start+ring.length-.1);});
+    if(current!==target)frame=requestAnimationFrame(draw);else lastTime=0;
+  }
+  function schedule(){if(!frame)frame=requestAnimationFrame(draw);}
+  function layout(){dirty=true;schedule();}
+  addEventListener('scroll',schedule,{passive:true});addEventListener('resize',layout,{passive:true});
+  addEventListener('pageshow',layout);section.addEventListener('change',layout);
+  new ResizeObserver(layout).observe(list);document.fonts?.ready.then(layout);
+  reduced.addEventListener('change',schedule);schedule();
 })();
 </script>
 </body>
