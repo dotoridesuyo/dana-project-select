@@ -28,10 +28,13 @@
 .journey-filters input:focus-visible+span{outline:2px solid var(--gold);outline-offset:4px}
 .journey-filters label:hover span{border-color:var(--gold)}
 .journey-list{list-style:none;margin:0;padding:0 0 0 25px;position:relative}
-.journey-list:before{content:"";position:absolute;left:5px;top:8px;bottom:20px;width:1px;background:linear-gradient(var(--gold),#dfc59a25)}
+.journey-list:before,.journey-list:after{content:"";position:absolute;left:4px;top:var(--journey-start,12px);width:2px;pointer-events:none}
+.journey-list:before{height:var(--journey-track,calc(100% - 32px));background:#ffffff19}
+.journey-list:after{height:var(--journey-progress,0px);max-height:var(--journey-track,100%);background:var(--gold);box-shadow:0 0 10px #dfc59a45}
+.journey-list:not(.journey-animated):after{display:none}
 .journey-item{position:relative;padding:0 0 31px 13px;margin:0}
-.journey-item:before{content:"";position:absolute;left:-25px;top:7px;width:10px;height:10px;border:1px solid var(--gold);background:var(--bg);border-radius:50%;box-shadow:0 0 0 5px var(--bg)}
-.journey-item:first-child:before{background:var(--gold);box-shadow:0 0 0 5px var(--bg),0 0 18px #dfc59a40}
+.journey-item:before{content:"";position:absolute;left:-25px;top:7px;width:10px;height:10px;border:1px solid #66636b;background:var(--bg);border-radius:50%;box-shadow:0 0 0 5px var(--bg);z-index:1;transition:background .2s,border-color .2s,box-shadow .2s}
+.journey-item.is-reached:before{border-color:var(--gold);background:var(--gold);box-shadow:0 0 0 5px var(--bg),0 0 18px #dfc59a55}
 .journey-item:last-child{padding-bottom:0}
 .journey-meta{display:flex;align-items:center;gap:11px;color:var(--gold);font-size:11px;line-height:1.8;letter-spacing:.025em}
 .journey-kind{font-size:9px;border-left:1px solid #dfc59a50;padding-left:11px;color:#c4b9a9;white-space:nowrap}
@@ -146,5 +149,42 @@
   <dialog id="detail-dialog" class="gallery-dialog" aria-labelledby="dialog-title"><header class="gallery-header"><div><span class="eyebrow">PORTFOLIO PAGES</span><h2 id="dialog-title"></h2><p id="gallery-summary"></p></div><div class="gallery-tools"><button class="dialog-close" id="close-detail" aria-label="포트폴리오 이미지 닫기">✕</button></div></header><div id="detail-content" class="gallery-pages"></div></dialog>
   <dialog id="profile-dialog" aria-labelledby="profile-title"><button class="dialog-close" id="close-profile" aria-label="기획자 소개 닫기">✕</button><span class="eyebrow">ABOUT ME</span><h2 id="profile-title">김단아<span>이야기를 만들어나가는 기획자 포트폴리오</span></h2><p class="profile-lead">다시 대화하고 싶은 캐릭터를 기획합니다.</p><p>캐릭터를 깊이 즐기고 직접 창작해 온 경험을 바탕으로, 어떤 성격과 말투, 관계가 애착을 만드는지 고민합니다. 이 매력이 대화 속 반응과 관계 변화로 이어지도록 기획합니다.</p><p>디자인 전공과 드로잉·AI 이미지 제작·포토샵 리터칭 경험은 캐릭터의 매력을 살릴 표현을 판단하는 기반입니다. 직접 제작해 본 이해를 바탕으로 기획 의도와 표현 기준을 협업 상대에게 명확히 전달합니다.</p><p>리프와 연우 프로젝트에서 캐릭터 설정과 말투·관계 기획을 정리하고, 직접 대화할 수 있는 캐릭터로 연결했습니다.</p><dl class="profile-capabilities"><div><dt>캐릭터 매력 설계</dt><dd>성격·말투·관계를 연결해 대화하고 싶은 캐릭터 설정</dd></div><div><dt>대화·관계 설계</dt><dd>캐릭터다운 반응과 관계 변화가 이어지는 대화 흐름</dd></div><div><dt>표현 판단과 소통</dt><dd>디자인 경험으로 표현을 판단하고 기획 의도를 명확히 전달</dd></div></dl><div class="profile-fields"><span>CHARACTER</span><span>DIALOGUE</span><span>COMMUNICATION</span></div></dialog>
   <noscript><p class="noscript">프로젝트 선택 기능은 자바스크립트가 필요합니다.</p></noscript>
+
+<script>
+/* Fill the timeline to the reader's position, including filtered layouts. */
+(()=>{
+  const section=document.querySelector('#journey');
+  const list=section?.querySelector('.journey-list');
+  if(!list)return;
+  const items=[...list.querySelectorAll('.journey-item')];
+  let frame=0;
+  function update(){
+    frame=0;
+    const visible=items.filter(item=>item.getClientRects().length);
+    if(!visible.length)return;
+    const bounds=list.getBoundingClientRect();
+    const dots=visible.map(item=>({item,y:item.getBoundingClientRect().top+12}));
+    const start=dots[0].y;
+    const length=Math.max(0,dots.at(-1).y-start);
+    const atPageEnd=window.scrollY+window.innerHeight>=document.documentElement.scrollHeight-2;
+    const progress=atPageEnd?length:Math.max(0,Math.min(length,window.innerHeight*.65-start));
+    list.style.setProperty('--journey-track',length+'px');
+    list.style.setProperty('--journey-progress',progress+'px');
+    list.style.setProperty('--journey-start',(start-bounds.top)+'px');
+    list.classList.add('journey-animated');
+    const reached=new Set(dots.filter(dot=>dot.y<=start+progress&&
+      (progress>0||start<=window.innerHeight*.65)).map(dot=>dot.item));
+    items.forEach(item=>item.classList.toggle('is-reached',reached.has(item)));
+  }
+  function schedule(){if(!frame)frame=requestAnimationFrame(update);}
+  window.addEventListener('scroll',schedule,{passive:true});
+  window.addEventListener('resize',schedule,{passive:true});
+  window.addEventListener('pageshow',schedule);
+  section.addEventListener('change',schedule);
+  new ResizeObserver(schedule).observe(list);
+  document.fonts?.ready.then(schedule);
+  schedule();
+})();
+</script>
 </body>
 </html>
